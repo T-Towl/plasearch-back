@@ -28,4 +28,20 @@ class Api::V1::ShopsController < ApplicationController
     end
   end
 
+  def keyword
+    if params[:name]
+      shops = Shop.where(name: params[:name])
+    elsif params[:keyword]
+      keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
+      oshops = []
+      keywords.each do |keyword|
+        shops += Office.where('name LIKE (?) OR address LIKE (?) OR near_station LIKE (?) OR introduction LIKE (?) OR company LIKE (?)',"%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
+      end
+    else
+      pagy, shops = pagy(Shop.all)
+      pagy_headers_merge(pagy)
+    end
+    render json: shops
+  end
+
 end
