@@ -8,6 +8,11 @@ class Api::V1::ShopsController < ApplicationController
     render json: @shops
   end
 
+  def show
+    @shop = Shop.find(params[:id])
+    render json: @shop
+  end
+
   def create
     @shop = Shop.create(name: params[:name])
     render json: @shop
