@@ -12,7 +12,7 @@ Shop.create([
   {name: "ホビーショップ サニー", lat: , lng: , phone_number: "03-3413-0857", post_code: "", address: "東京都世田谷区北沢２－１２－１", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
   {name: "キヤホビー", lat: , lng: , phone_number: "03-3398-1424", post_code: "", address: "東京都杉並区上荻1-16-16喜屋ビル6階", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
   {name: "博品館トイパーク", lat: , lng: , phone_number: "03-3571-8008", post_code: "", address: "東京都中央区銀座8-8-11博品館", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
-  {name: "ガンダムグッズ専門SHOP「G作戦」", lat: , lng:  phone_number: "03-3484-0229", post_code: "",, address: "東京都世田谷区祖師谷5-9-8", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
+  {name: "ガンダムグッズ専門SHOP「G作戦」", lat: , lng: ,  phone_number: "03-3484-0229", post_code: "",, address: "東京都世田谷区祖師谷5-9-8", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
   {name: "ビックカメラ池袋西口店", lat: , lng: , phone_number: "03-5960-1111", post_code: "", address: "東京都豊島区西池袋1-16-3", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
   {name: "株式会社ビックカメラ池袋本店", lat: , lng: , phone_number: "03-5396-1111", post_code: "", address: "東京都豊島区東池袋1-41-5", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
   {name: "ホビーショップコバヤシ", lat: , lng: , phone_number: "03-3329-2851", post_code: "", address: "東京都杉並区下高井戸1-21-12自宅兼店舗", opening_hours: "", photo_reference: "", rating: 4.2, place_id: ""},
