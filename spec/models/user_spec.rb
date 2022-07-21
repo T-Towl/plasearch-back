@@ -65,5 +65,15 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'email addresses should be unique' do
+      it 'Userが登録できていないこと' do
+        user = User.new(name: 'Example User', email: 'user@example.com')
+        duplicate_user = user.dup
+        duplicate_user.email = user.email.upcase
+        user.save
+        expect(duplicate_user.valid?).to eq false
+      end
+    end
+
   end
 end
