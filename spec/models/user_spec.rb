@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
 
     context 'should be valid' do
       it 'Userが登録できていること' do
-        user = User.new(name: 'Example User', email: 'user@example.com')
+        user = User.new(name: 'Example User', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         expect(user.valid?).to eq true
       end
     end
@@ -44,8 +44,8 @@ RSpec.describe User, type: :model do
     end
 
     context 'email validation should accept valid addresses' do
-      it 'Userが登録できていないこと' do
-        user = User.new(name: 'Example User', email: 'user@example.com')
+      it 'Userが登録できていること' do
+        user = User.new(name: 'Example User', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
         valid_addresses.each do |valid_address|
           user.email = valid_address
