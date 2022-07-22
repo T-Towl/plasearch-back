@@ -74,6 +74,7 @@ RSpec.describe User, type: :model do
         expect(duplicate_user.valid?).to eq false
       end
     end
+<<<<<<< HEAD
 
     context 'password should be present (nonblank)' do
       it 'Userが登録できていないこと' do
@@ -83,5 +84,7 @@ RSpec.describe User, type: :model do
       end
     end
 
+=======
+>>>>>>> fd34006ba61b93667829a47338ae3f15b2b9e8a7
   end
 end
