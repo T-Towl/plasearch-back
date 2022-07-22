@@ -75,5 +75,13 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'password should be present (nonblank)' do
+      it 'Userが登録できていないこと' do
+        user = User.new(name: 'Example User', email: ' ')
+        user.password = user.password_confirmation = " " * 6
+        expect(user.valid?).to eq false
+      end
+    end
+
   end
 end
