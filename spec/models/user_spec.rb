@@ -15,21 +15,21 @@ RSpec.describe User, type: :model do
 
     context 'name should be present' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: ' ', email: 'user@example.com')
+        user = User.new(name: ' ', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         expect(user.valid?).to eq false
       end
     end
 
     context 'email should be present' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: 'Example User', email: ' ')
+        user = User.new(name: 'Example User', email: ' ', password: "foobar", password_confirmation: "foobar")
         expect(user.valid?).to eq false
       end
     end
 
     context 'name should not be too long' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: ' ', email: 'user@example.com')
+        user = User.new(name: ' ', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         user.name = "a" * 26
         expect(user.valid?).to eq false
       end
@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
 
     context 'email should not be too long' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: 'Example User', email: ' ')
+        user = User.new(name: 'Example User', email: ' ', password: "foobar", password_confirmation: "foobar")
         user.email = "a" * 244 + "@example.com"
         expect(user.valid?).to eq false
       end
@@ -56,7 +56,7 @@ RSpec.describe User, type: :model do
 
     context 'email validation should reject invalid addresses' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: 'Example User', email: 'user@example.com')
+        user = User.new(name: 'Example User', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com]
         invalid_addresses.each do |invalid_address|
           user.email = invalid_address
@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
 
     context 'email addresses should be unique' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: 'Example User', email: 'user@example.com')
+        user = User.new(name: 'Example User', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         duplicate_user = user.dup
         duplicate_user.email = user.email.upcase
         user.save
@@ -77,10 +77,19 @@ RSpec.describe User, type: :model do
 
     context 'password should be present (nonblank)' do
       it 'Userが登録できていないこと' do
-        user = User.new(name: 'Example User', email: ' ')
+        user = User.new(name: 'Example User', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
         user.password = user.password_confirmation = " " * 6
         expect(user.valid?).to eq false
       end
     end
+
+    context 'password should have a minimum length' do
+      it 'Userが登録できていないこと' do
+        user = User.new(name: 'Example User', email: 'user@example.com', password: "foobar", password_confirmation: "foobar")
+        user.password = user.password_confirmation = "a" * 5
+        expect(user.valid?).to eq false
+      end
+    end
+
   end
 end
