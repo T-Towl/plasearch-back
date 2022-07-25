@@ -40,7 +40,7 @@ class Api::V1::ShopsController < ApplicationController
   #     keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
   #     shops = []
   #     keywords.each do |keyword|
-  #       shops += Office.where('name LIKE (?) OR address LIKE (?) OR near_station LIKE (?) OR introduction LIKE (?) OR company LIKE (?)',"%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
+  #       shops += Shop.where('name LIKE (?) OR address LIKE (?) OR near_station LIKE (?) OR introduction LIKE (?) OR company LIKE (?)',"%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
   #     end
   #   else
   #     pagy, shops = pagy(Shop.all)
