@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://clever-bubblegum-6b0de2.netlify.app"
+    origins Rails.application.credentials.origin[:access_key_id]
 
     resource "*",
       headers: :any,
