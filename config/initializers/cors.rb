@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins Rails.application.credentials.origin[:access_key_id]
+    origins Rails.application.credentials.origin[:plasearch_front]
 
     resource "*",
       headers: :any,
