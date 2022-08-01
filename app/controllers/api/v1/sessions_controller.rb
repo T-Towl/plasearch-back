@@ -19,7 +19,8 @@ class Api::V1::SessionsController < ApplicationController
   end
 
     # logged_in?
-  def new
+  def show
+      # logger.debug(@current_user)
       if @current_user
           render json: { logged_in: true, user: current_user }
       else
