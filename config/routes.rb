@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :shops, only: [:index, :show]
       resources :users
+      resources :sessions
     end
   end
 end
