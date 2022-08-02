@@ -7,13 +7,8 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-<<<<<<< HEAD
-    origins 'http://localhost:3000'
-    # Rails.application.credentials.origin[:plasearch_front] , 
-=======
     # origins Rails.application.credentials.origin[:plasearch_front]
     origins 'http://localhost:3000/'
->>>>>>> b1432acd5a9ea2fe1a16cf2b033cc9f1a0f5a398
 
     resource "*",
       headers: :any,
