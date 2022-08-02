@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
 
     # signup
   def create
-    @user = User.new(users_params)
+    @user = User.new(user_params)
 
     if @user.save
       login!
