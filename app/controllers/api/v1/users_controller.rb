@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
 
     # signup
   def create
-    @user = User.new(user_params)
+    @user = User.new(users_params)
 
     if @user.save
       login!
@@ -16,16 +16,6 @@ class Api::V1::UsersController < ApplicationController
       render json: { status: 500 }
     end
   end
-
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     # 保存の成功をここで扱う。
-  #   else
-  #     render 'new'
-  #   end
-  #   render json: @user
-  # end
 
   private
 

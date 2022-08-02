@@ -25,7 +25,12 @@ module PlasearchBack
     config.api_only = true
 
     # Cookies
+<<<<<<< HEAD
     config.middleware.use ActionDispatch::Cookies               # 追加する
     config.middleware.use ActionDispatch::Session::CookieStore  # 追加する
+=======
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+>>>>>>> b1432acd5a9ea2fe1a16cf2b033cc9f1a0f5a398
   end
 end
