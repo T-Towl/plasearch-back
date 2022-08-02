@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
 
   # skip_before_action :verify_authenticity_token
+  
   #Rails APIモードでCookiesを使用するには、以下を記述
   include ActionController::Cookies
   #Rails APIモードでhelpersメソッドを使用するには、以下を記述
