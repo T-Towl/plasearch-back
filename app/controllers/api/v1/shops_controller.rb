@@ -1,6 +1,6 @@
 class Api::V1::ShopsController < ApplicationController
 
-# ページネーションなど何かしらの対策要
+# ↓ページネーションなど何かしらの対策要
   def index 
     @shops = Shop.all
     render json: @shops
@@ -11,26 +11,27 @@ class Api::V1::ShopsController < ApplicationController
     render json: @shop
   end
 
-  def create
-    @shop = Shop.create(name: params[:name])
-    render json: @shop
-  end
+  # 店舗情報 追加・更新・削除機能 実装中
+  # def create
+  #   @shop = Shop.create(name: params[:name])
+  #   render json: @shop
+  # end
 
-  def update
-    @shop = Shop.find(params[:id])
-    @shop.update_attributes(name: params[:name])
-    render json: @shop
-  end
+  # def update
+  #   @shop = Shop.find(params[:id])
+  #   @shop.update_attributes(name: params[:name])
+  #   render json: @shop
+  # end
 
-  def destroy
-    @shop = Shop.find(params[:id])
-    if @shop.destroy
-      head :ok
-      # head :no_content, status:ok
-    # else
-    #   render json: @shop.errors, status: :unprocessable_entity
-    end
-  end
+  # def destroy
+  #   @shop = Shop.find(params[:id])
+  #   if @shop.destroy
+  #     head :ok
+  #     head :no_content, status:ok
+  #   else
+  #     render json: @shop.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # 実装中
   # def keyword
