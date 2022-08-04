@@ -13,7 +13,11 @@ class Api::V1::UsersController < ApplicationController
       login!
       render json: { status: :created, user: @user }
     else
+<<<<<<< HEAD
       render json: { status: 500 }
+=======
+      render json: { status: 500, errors: ['ユーザー登録に失敗しました。', '正しいユーザーネーム・メールアドレス・パスワードを入力してください。'] }
+>>>>>>> 12d98f26b237fa819caca265b54662b3f38e76c4
     end
   end
 
