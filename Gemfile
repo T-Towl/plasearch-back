@@ -35,7 +35,8 @@ gem "rack-cors"
 
 gem "rename"
 
-gem "rails_same_site_cookie", "~> 0.1.8"  # 追加する
+# SameSite属性を None かつ Secure属性を true にします
+gem "rails_same_site_cookie", "~> 0.1.8"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
