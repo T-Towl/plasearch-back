@@ -4,7 +4,13 @@ class FavoritesController < ApplicationController
 
   # お気に入り登録
   def create
+    @shop = Shop.find(params[:id])
+    if @current_user
       @favorite = Favorite.create(user_id: current_user.id, shop_id: @shop.id)
+      render json: { favorited: true, favorite: @favorite }
+    else
+      render json: { status: 401, errors: ['ログイン、もしくわユーザー登録してください'] }
+    end
   end
 
   # お気に入り削除
