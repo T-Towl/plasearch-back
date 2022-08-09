@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do 
-    origins 'http://localhost:3000/'
+    origins 'http://localhost:3000'
 
     resource "*",
       headers: :any,
@@ -15,12 +15,12 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       credentials: true
   end
 
-  allow do 
-    origins Rails.application.credentials.origin[:plasearch_front]
+  # allow do 
+  #   origins Rails.application.credentials.origin[:plasearch_front]
 
-    resource "*",
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
-  end
+  #   resource "*",
+  #     headers: :any,
+  #     methods: [:get, :post, :put, :patch, :delete, :options, :head],
+  #     credentials: true
+  # end
 end
