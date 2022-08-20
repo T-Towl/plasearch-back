@@ -17,7 +17,7 @@ class Api::V1::FavoritesController < ApplicationController
   def destroy
     if @favorite = Favorite.find_by(id: params[:favorite_id])
       @favorite.destroy
-      render json: { deleted: true, favorite: @favorite }
+      render json: { deleted: true }
     else
       render json: { deleted: false, errors: ['お気に入りが存在しません']}
     end
