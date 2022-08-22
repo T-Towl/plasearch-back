@@ -1,6 +1,8 @@
 class Api::V1::ShopsController < ApplicationController
 
-# ↓ページネーションなど何かしらの対策要
+  before_action :current_user
+
+  # ↓ページネーションなど何かしらの対策要
   def index 
     @shops = Shop.all
     render json: @shops
@@ -8,7 +10,16 @@ class Api::V1::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    render json: @shop
+    # if @current_user
+    if @favorite = Favorite.find_by(user_id: params[:user_id], shop_id: @shop.id)
+      render json: { shop: @shop, favorited: true, favorite: @favorite }
+    else
+      render json: { shop: @shop, favorited: false}
+    end
+
+    # else
+    #   render json: { shop: @shop }
+    # end  
   end
 
   # 店舗情報 追加・更新・削除機能 実装中
