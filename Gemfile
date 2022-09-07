@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.1"
+# ruby "3.1.1"
+ruby "3.0.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
@@ -36,7 +37,7 @@ gem "rack-cors"
 gem "rename"
 
 # SameSite属性を None かつ Secure属性を true にします
-gem "rails_same_site_cookie", "~> 0.1.8"
+# gem "rails_same_site_cookie", "~> 0.1.8"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -45,7 +46,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
-  gem 'rspec-rails'
+  # gem 'rspec-rails'
 end
 
 group :development do
