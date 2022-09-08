@@ -8,11 +8,10 @@ class Api::V1::FavoritesController < ApplicationController
     # if @current_user
     # @favorite = Favorite.create(user_id: current_user.id, shop_id: @shop.id)
     if @favorite = Favorite.create(user_id: params[:user_id], shop_id: params[:shop_id])
-      render json: { favorited: true, favorite: @favorite },
-             status: :created 
+      render json: { favorite: @favorite },
+             status: 201
     else
-      render json: { favorited: false, errors: ['ログイン、もしくわユーザー登録してください'] },
-             status: :conflict
+      render json: { errors: ['ログイン、もしくわユーザー登録してください'] }
     end
   end
 
@@ -20,11 +19,10 @@ class Api::V1::FavoritesController < ApplicationController
   def destroy
     if @favorite = Favorite.find_by(id: params[:favorite_id])
       @favorite.destroy
-      render json: { deleted: true }
-             status: :no_content
+      render json: { favorite: @favorite }
+      # status: 200
     else
-      render json: { errors: ['お気に入りが存在しません']},
-             status: :conflict
+      render json: { errors: ['お気に入りが存在しません']}
     end
   end
 

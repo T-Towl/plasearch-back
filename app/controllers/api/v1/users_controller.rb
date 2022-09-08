@@ -3,9 +3,9 @@ class Api::V1::UsersController < ApplicationController
   before_action :current_user
 
   def show
-    @user = User.find(params[:id])
-    favorites = Favorite.where(user_id: current_user.id).pluck(:shop_id)  # ログイン中のユーザーのお気に入りのshop_idカラムを取得
-    @favorite_list = Shop.find(favorites)     # shopsテーブルから、お気に入り登録済みのレコードを取得
+    # @user = User.find(params[:id]) # current _userで代替えできる
+    favorite_shop_ids = Favorite.where(user_id: current_user.id).pluck(:shop_id)  # ログイン中のユーザーのお気に入りのshop_idカラムを取得
+    @favorite_list = Shop.where(favorites)     # shopsテーブルから、お気に入り登録済みのレコードを取得
     render json: { user: @user, facorites: @favorite_list }
   end
 
