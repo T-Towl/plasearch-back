@@ -1,8 +1,8 @@
 class Api::V1::SessionsController < ApplicationController
   
-  before_action :current_user
+  # before_action :current_user
 
-  # login
+    # login
   def create
     @user = User.find_by(email: session_params[:email])
 
@@ -22,6 +22,7 @@ class Api::V1::SessionsController < ApplicationController
 
     # logged_in?
   def show
+    current_user
     if @current_user
       render json: { logged_in: true, user: current_user }
     else
