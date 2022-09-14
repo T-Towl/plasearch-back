@@ -1,10 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
-  before_action :current_user
-
   def show
     # @user = User.find(params[:id]) 
-      # current _userで代替えできる
+    # ↑current _userで代替えできる
     favorite_shop_ids = Favorite.where(user_id: @current_user.id).pluck(:shop_id)  
       # ログイン中のユーザーのお気に入りのshop_idカラムを取得
     @favorite_list = Shop.where(favorite_shop_ids) 
