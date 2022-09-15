@@ -11,11 +11,10 @@ class ApplicationController < ActionController::API
 
   def login!
     session[:user_id] = @user.id
-    logger.debug "ログイン発火"
   end
 
   def current_user
-    logger.debug "ログインユーザー1：#{session[:user_id]}"
+    logger.debug "ログインユーザー：#{session[:user_id]}"
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
   
