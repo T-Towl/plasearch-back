@@ -9,11 +9,11 @@ class Api::V1::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     if @favorite = Favorite.find_by(user_id: @current_user.id, shop_id: @shop.id)
-      render json: { shop: @shop, favorite: @favorite }
-      # status: :ok 200
+      render json: { shop: @shop, favorite: @favorite },
+             status: :ok #200
     else
-      render json: { shop: @shop}
-      # status: :not_modified
+      render json: { shop: @shop},
+             status: :accepted #202
     end
 
     # else
