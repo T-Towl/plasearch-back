@@ -3,7 +3,7 @@ class Api::V1::FavoritesController < ApplicationController
   # お気に入り登録
   def create
     set_shop
-    if favorite = current_user.favorites.create(user_id: @current_user.id, shop_id: @shop.id)
+    if favorite = current_user.favorites.create(user_id: @current_user.id, shop_id: params[:shop_id])
     # ログイン中のユーザーのみに許可
       render json: { favorite: favorite },
              status: :created #201
@@ -25,9 +25,4 @@ class Api::V1::FavoritesController < ApplicationController
              status: :not_found #404
     end
   end
-
-  private
-    def set_shop
-      @shop = Shop.find_by(id: params[:shop_id])
-    end
 end
