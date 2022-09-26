@@ -1,30 +1,28 @@
 class Api::V1::FavoritesController < ApplicationController
-  # before_action :set_post
-  before_action :current_user   # ログイン中のユーザーのみに許可（未ログインなら、ログイン画面へ移動）
 
   # お気に入り登録
   def create
-    # if @current_user
-    # @favorite = Favorite.create(user_id: current_user.id, shop_id: @shop.id)
-    if @favorite = Favorite.create(user_id: params[:user_id], shop_id: params[:shop_id])
-      render json: { favorited: true, favorite: @favorite }
+    set_shop
+    if favorite = current_user.favorites.create(user_id: @current_user.id, shop_id: params[:shop_id])
+    # ログイン中のユーザーのみに許可
+      render json: { favorite: favorite },
+             status: :created #201
     else
-      render json: { status: 401, favorited: false, errors: ['ログイン、もしくわユーザー登録してください'] }
+      render json: { errors: ['お気に入り登録失敗'] }, 
+             status: :bad_request #400
     end
   end
 
   # お気に入り削除
   def destroy
-    if @favorite = Favorite.find_by(id: params[:favorite_id])
-      @favorite.destroy
-      render json: { deleted: true }
+    if  favorite = current_user.favorites.find_by(id: params[:id])
+     # ログイン中のユーザーのみに許可
+      favorite.destroy
+      render json: { favorite: favorite },
+             status: :no_content #204
     else
-      render json: { deleted: false, errors: ['お気に入りが存在しません']}
+      render json: { errors: ['お気に入りが存在しません']},
+             status: :not_found #404
     end
   end
-
-  private
-    # def set_shop
-    #   @shop = Shop.find(params[:shop_id])
-    # end
 end

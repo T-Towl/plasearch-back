@@ -1,31 +1,37 @@
 class Api::V1::SessionsController < ApplicationController
-  
-  before_action :current_user
 
-  # login
+    # login
   def create
     @user = User.find_by(email: session_params[:email])
 
     if @user && @user.authenticate(session_params[:password])
       login!
-      render json: { logged_in: true, user: @user }
+      render json: { user: @user },
+             status: :created #201
     else
-      render json: { status: 401, errors: ['認証に失敗しました。', '正しいメールアドレス・パスワードを入力し直すか、新規登録を行ってください。'] }
+      render json: { errors: ['認証に失敗しました。', 
+                              '正しいメールアドレス・パスワードを入力し直すか、新規登録を行ってください。'] },
+             status: :unauthorized #401
     end
   end
 
     # logout
   def destroy
-    reset_session
-    render json: { status: 200, logged_out: true }
+    if reset_session
+      render status: :no_content #204
+    else
+      render status: :conflict #409
+    end
   end
 
     # logged_in?
   def show
     if @current_user
-      render json: { logged_in: true, user: current_user }
+      render json: { user: current_user },
+             status: :ok #200
     else
-      render json: { logged_in: false, message: 'ユーザーが存在しません' }
+      render json: { message: 'ユーザーが存在しません' },
+             status: :not_found #404
     end
   end
 
