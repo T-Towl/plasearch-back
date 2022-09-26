@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
       # ログイン中のユーザーのお気に入りのshop_idカラムを取得
     @favorite_list = Shop.where(favorite_shop_ids)
       # shopsテーブルから、お気に入り登録済みのレコードを取得
-      render json: { user: @current_user, facorites: @favorite_list }
+      render json: { user: @current_user, favorites: @favorite_list }
   end
 
     # signup
@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: { errors: ['ユーザー登録に失敗しました。', 
                               '正しいユーザーネーム・メールアドレス・パスワードを入力してください。'] },
-             status: :conflict # 409
+             status: :bad_request # 400
     end
   end
 

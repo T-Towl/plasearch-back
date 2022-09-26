@@ -31,7 +31,7 @@ class Api::V1::SessionsController < ApplicationController
              status: :ok #200
     else
       render json: { message: 'ユーザーが存在しません' },
-             status: :not_modified #304
+             status: :not_found #404
     end
   end
 
