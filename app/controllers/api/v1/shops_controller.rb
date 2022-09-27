@@ -14,7 +14,7 @@ class Api::V1::ShopsController < ApplicationController
              status: :ok #200
     else
       render json: { shop: @shop},
-             status: :ok #200
+             status: :accepted #202
     end
   end
 
