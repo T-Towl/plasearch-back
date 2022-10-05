@@ -2,7 +2,6 @@ class Api::V1::FavoritesController < ApplicationController
 
   # お気に入り登録
   def create
-    set_shop
     if favorite = current_user.favorites.create(user_id: @current_user.id, shop_id: params[:shop_id])
     # ログイン中のユーザーのみに許可
       render json: { favorite: favorite },
