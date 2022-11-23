@@ -30,9 +30,9 @@
 !/tmp/storage/.keep
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
 
 .DS_Store
 .rspec
 node_modules/
 /config/credentials/development.key
+/config/credentials/master.key
