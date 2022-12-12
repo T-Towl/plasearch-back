@@ -21,7 +21,6 @@ group :development, :test do
   gem "sqlite3", "~> 1.4"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails'
-  gem 'rails-env-credentials'
 end
 
 group :development do

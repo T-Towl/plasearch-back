@@ -140,8 +140,6 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-env-credentials (0.1.5)
-      rails (>= 5.2.0.rc1)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     rails_same_site_cookie (0.1.9)
@@ -202,7 +200,6 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.3)
-  rails-env-credentials
   rails_same_site_cookie (~> 0.1.8)
   rename
   rspec-rails

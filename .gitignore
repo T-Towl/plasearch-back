@@ -35,4 +35,5 @@
 .rspec
 node_modules/
 /config/credentials/development.key
-/config/credentials/master.key
+
+/config/master.key
