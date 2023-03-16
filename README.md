@@ -1,24 +1,39 @@
-# README
+### バージョン
+Ruby 3.1.1
+Ruby on Rails 7.0.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名
 
-Things you may want to cover:
+Plasearch -プラサーチ-
 
-* Ruby version
+### アプリケーション概要
 
-* System dependencies
+ガンプラを販売しているお店を、検索できるアプリケーションです。
 
-* Configuration
+### URL
 
-* Database creation
+https://clever-bubblegum-6b0de2.netlify.app
 
-* Database initialization
+### テスト用アカウント
 
-* How to run the test suite
+メールアドレス：a@a.com
+パスワード：aaaaaa
 
-* Services (job queues, cache servers, search engines, etc.)
+### 利用方法
 
-* Deployment instructions
+「マップから探す」or「キーワードから探す」から店舗検索
 
-* ...
+#### マップから探す
+
+マップから探すページにいくと、現在地を自動で取得できるようになっている。
+探したいエリアへマーカーを移動させ、店舗検索ボタンをクリックするとエリア内のカンプラ販売店がヒットします。
+
+#### キーワードから探す
+
+キーワードから探すページのキーワード入力欄に、住所（一部でも可）などを入力し、検索ボタンをクリックすると、キーワードを含む店舗が表示されます。
+各店舗をクリックすると、詳細画面へ進むことができます。
+
+#### 目指した課題解決
+
+昨今の巣篭もり需要でガンプラが品薄状態になり、いつも買っていたお店にガンプラが売っていないという事案が多発しました。
+そこで、その課題を解決するために、ガンプラにフォーカスした検索サービスを制作しました。
